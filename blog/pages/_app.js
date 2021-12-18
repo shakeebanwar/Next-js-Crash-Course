@@ -2,25 +2,25 @@ import '../styles/globals.css'
 import Layout from '../components/Layout'
 import { Provider } from 'react-redux';
 import withRedux from "next-redux-wrapper";
-import store from '../redux/store';
+import {store} from '../redux/store';
 
 
 function MyApp({ Component, pageProps }) {
 
- return (
+  return (
 
 
-        <Provider store={store}>
-        <Layout>
+    <Provider store={store}>
+      <Layout>
 
-          <Component {...pageProps} />
-        </Layout>
+        <Component {...pageProps} />
+      </Layout>
 
-        </Provider>
+    </Provider>
 
-    )
+  )
 
- 
+
 }
 
 

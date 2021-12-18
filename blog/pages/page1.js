@@ -1,27 +1,26 @@
 import Title from '../components/Title'
 import React, { useState, useEffect } from 'react'
 import Router from 'next/router'
+import {connect} from 'react-redux';
 
 
 
 
 
-export default function page1() {
+function page1(props) {
 
-    const [title, settitle] = useState("");
-    console.log("email state",title)
+
+  console.log("props",props)
+
+    const [title, settitle] = useState(props.authObj.title);
+
 
   
 
     const check=()=>{
-        console.log("checking function is call")
+        console.log("props",props)
      
-        Router.push({
-            pathname: '/page2',
-            query: { name: "shakeeb" },
        
-
-        })
     }
 
   
@@ -37,3 +36,16 @@ export default function page1() {
     </>
   )
 }
+
+const mapStateToProps = state => ({
+
+   
+  counter: state.counter.value,
+  authObj : state.counter.obj
+
+});
+
+
+
+
+export default connect(mapStateToProps, null)(page1);

@@ -6,18 +6,36 @@ export const auth = "AUTH";
 
 //Action Creator
 export const incrementCounter = () => ({
-   type: INCREMENT_COUNTER
+    type: INCREMENT_COUNTER
 });
 
 export const decrementCounter = () => ({
     type: DECREMENT_COUNTER
 });
 
-export const saveObj = (users) =>  (
-    
-    {
-    
-    type: auth,
-    payload:users
-});
+export const saveObj = () => dispatch => {
+    return new Promise((resolve, reject) => {
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+
+        fetch("https://api.clearpricing.health/landingpageData", requestOptions)
+
+            .then(response => response.json())
+            .then(result => {
+                dispatch({
+                    type: auth,
+                    payload: result
+                });
+                resolve({ obj: result });
+          
+            })
+
+            .catch(error => {
+                console.log('error', error)
+                reject(error)
+            });
+    })
+};
 

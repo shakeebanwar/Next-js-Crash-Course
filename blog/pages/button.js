@@ -1,43 +1,53 @@
 import Title from '../components/Title'
-import {connect} from 'react-redux';
-import {decrementCounter, incrementCounter,saveObj} from '../redux/actions/counterActions';
+import { connect } from 'react-redux';
+import { decrementCounter, incrementCounter, saveObj } from '../redux/actions/counterActions';
 import React, { useState, useEffect } from 'react'
+import Router from 'next/router'
 
 function button(props) {
 
-    console.log("props===>",props)
+    console.log("props===>", props)
     const [title, settitle] = useState("");
 
-    const check=()=>{
+    const check = async () => {
 
-        props.saveObj({'name':'safdar'})
-        settitle("shakeeb")
-        
-    }
+        console.log("waiting")
+        props.saveObj().then((e) => {
+            console.log("object recieving",e)
+            Router.push({
+                pathname: '/page1',
 
-  
-    
-  return (
+
+
+            })
+        })
+
+       
+}
+
+
+
+return (
     <>
-     <Title title="button" />
+        <Title title="shakeeb" />
 
-     <h1>{props.counter}</h1>
-     <button onClick={props.incrementCounter}>Increment</button>
-    <button onClick={props.decrementCounter}>Decrement</button>
-    <button onClick={check}>My Function</button>
+        <h1>{props.counter}</h1>
+        <button onClick={props.incrementCounter}>Increment</button>
+        <button onClick={props.decrementCounter}>Decrement</button>
+        <button onClick={check}>My Function</button>
 
 
     </>
-  )
+)
 }
 
 
 const mapStateToProps = state => ({
 
-   
+
     counter: state.counter.value,
-    authObj : state.counter.obj
- 
+    authObj: state.counter.obj
+
 });
 
 
@@ -45,13 +55,13 @@ const mapStateToProps = state => ({
 
 
 
-  const mapDispatchToProps = {
+const mapDispatchToProps = {
     incrementCounter: incrementCounter,
     decrementCounter: decrementCounter,
-    saveObj :saveObj
+    saveObj: saveObj
 };
 
- 
+
 
 
 
