@@ -15,27 +15,40 @@ export const decrementCounter = () => ({
 
 export const saveObj = () => dispatch => {
     return new Promise((resolve, reject) => {
-        var requestOptions = {
-            method: 'GET',
-            redirect: 'follow'
-        };
 
-        fetch("https://api.clearpricing.health/landingpageData", requestOptions)
-
-            .then(response => response.json())
-            .then(result => {
-                dispatch({
-                    type: auth,
-                    payload: result
+        try{
+            var requestOptions = {
+                method: 'GET',
+                redirect: 'follow'
+            };
+    
+            fetch("https://api.clearpricing.health/landingpageData", requestOptions)
+    
+                .then(response => response.json())
+                .then(result => {
+                    dispatch({
+                        type: auth,
+                        payload: result
+                    });
+                    resolve({ obj: result });
+              
+                })
+    
+                .catch(error => {
+                    
+                    reject(error)
+            
+                   
                 });
-                resolve({ obj: result });
-          
-            })
 
-            .catch(error => {
-                console.log('error', error)
-                reject(error)
-            });
+            
+        }
+
+        catch(error){
+            reject(error)
+
+        }
+        
     })
 };
 

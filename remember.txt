@@ -68,3 +68,43 @@ Server side prop:
 
 Dynamic route Generation:
 creata a file [id].js inside the page directory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
