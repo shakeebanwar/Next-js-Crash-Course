@@ -1,3 +1,4 @@
+import Router from 'next/router'
 
 export default function register() {
   return (
@@ -45,7 +46,7 @@ export default function register() {
                     <a href="#" className="facebook"><i className="fa fa-facebook" /></a><a href="#" className="google"><i className="fa fa-google" /></a>
                   </div>
                   {/* /Social Login */}
-                  <div className="text-center dont-have">Already have an account? <a href="login.html">Login</a></div>
+                  <div className="text-center dont-have">Already have an account? <a href="#" onClick={()=>Router.push('login')}>Login</a></div>
                 </div>
               </div>
             </div>

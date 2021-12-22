@@ -1,5 +1,5 @@
 
-
+import Router from 'next/router'
 
 export default function forgetpassword() {
   return (
@@ -27,7 +27,7 @@ export default function forgetpassword() {
                     </div>
                   </form>
                   {/* /Form */}
-                  <div className="text-center dont-have">Remember your password? <a href="login.html">Login</a></div>
+                  <div className="text-center dont-have">Remember your password? <a href="#" onClick={()=>Router.push('login')}>Login</a></div>
                 </div>
               </div>
             </div>

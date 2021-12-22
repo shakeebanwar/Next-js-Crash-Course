@@ -2,17 +2,19 @@ import Navbar from './Navbar'
 
 
 
-export default function Layout({children}) {
+export default function Layout({ children, isNav = true }) {
+
+
   return (
-    
+
     <>
-    <Navbar/>
+      {isNav && <Navbar />}
 
-  <main>
+      <main>
 
-  {children}
-  </main>
-  </>
+        {children}
+      </main>
+    </>
 
   )
 }

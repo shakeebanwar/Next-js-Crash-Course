@@ -1,5 +1,6 @@
 
 import Navbar from '../components/Navbar'
+import Router from 'next/router'
 
 export default function login() {
   return (
@@ -32,7 +33,7 @@ export default function login() {
                     </div>
                   </form>
                   {/* /Form */}
-                  <div className="text-center forgotpass"><a href="forgot-password.html">Forgot Password?</a></div>
+                  <div className="text-center forgotpass"><a href = "#"onClick={()=>Router.push('forgetpassword')}>Forgot Password?</a></div>
                   <div className="login-or">
                     <span className="or-line" />
                     <span className="span-or">or</span>
@@ -43,7 +44,7 @@ export default function login() {
                     <a href="#" className="facebook"><i className="fa fa-facebook" /></a><a href="#" className="google"><i className="fa fa-google" /></a>
                   </div>
                   {/* /Social Login */}
-                  <div className="text-center dont-have">Don’t have an account? <a href="register.html">Register</a></div>
+                  <div className="text-center dont-have">Don’t have an account? <a href="#" onClick={()=>Router.push('register')}>Register</a></div>
                 </div>
               </div>
             </div>

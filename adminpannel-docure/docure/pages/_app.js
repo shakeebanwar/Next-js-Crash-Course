@@ -7,20 +7,33 @@ import '../public/static/assets/css/style.css'
 import '../public/static/assets/img/favicon.png'
 
 
+function MyApp({ Component, pageProps, router }) {
 
 
-import { useEffect } from 'react'
 
-function MyApp({ Component, pageProps }) {
-
+  const renderNav = (currentScreen) => {
+    const noNavScreens = [
+      "/login",
+      "/model",
+      "/register",
+      "/forgetpassword",
+      "/lockscreen"
+    ];
+    
+    return !noNavScreens.includes(currentScreen)
+  }
 
 
   return (
-  
-  <Layout>
+    <>
 
-    <Component {...pageProps} />
-  </Layout>
+      <Layout isNav={renderNav(router.route)}>
+
+        <Component {...pageProps} />
+      </Layout>
+
+    </>
+
 
   )
 }
