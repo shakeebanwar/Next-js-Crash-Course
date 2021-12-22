@@ -1,6 +1,37 @@
 import Navbar from '../components/Navbar'
+import { useState } from 'react'
 
 export default function Profile() {
+  const [about, setabout] = useState(true);
+  const [password, setpassword] = useState(false);
+
+  console.log("state is ",about,password)
+
+  const updateState=(e)=>{
+
+    console.log("function is calling")
+
+    if(e == "about"){
+
+      setabout(true)
+      setpassword(false)
+
+    }
+
+    else{
+
+      setpassword(true)
+      setabout(false)
+
+
+    }
+
+   
+
+
+  }
+
+
   return (
       <>
      
@@ -36,26 +67,26 @@ export default function Profile() {
                     <div className="user-Location"><i className="fa fa-map-marker" /> Florida, United States</div>
                     <div className="about-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
                   </div>
-                  <div className="col-auto profile-btn">
+                  {/* <div className="col-auto profile-btn">
                     <a href="#" className="btn btn-primary">
                       Edit
                     </a>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <div className="profile-menu">
                 <ul className="nav nav-tabs nav-tabs-solid">
                   <li className="nav-item">
-                    <a className="nav-link active" data-toggle="tab" href="#per_details_tab">About</a>
+                    <a href="#" className={about ? "nav-link active" : "nav-link"} data-toggle="tab" onClick={()=>updateState("about")}>About</a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" data-toggle="tab" href="#password_tab">Password</a>
+                    <a href="#" className={password ? "nav-link active" : "nav-link"} data-toggle="tab" onClick={()=>updateState("password")}>Password</a>
                   </li>
                 </ul>
               </div>	
               <div className="tab-content profile-tab-cont">
                 {/* Personal Details Tab */}
-                <div className="tab-pane fade show active" id="per_details_tab">
+                <div className={about ? "tab-pane fade show active": "tab-pane fade"} > 
                   {/* Personal Details */}
                   <div className="row">
                     <div className="col-lg-12">
@@ -101,7 +132,7 @@ export default function Profile() {
                               </button>
                             </div>
                             <div className="modal-body">
-                              <form>
+                        
                                 <div className="row form-row">
                                   <div className="col-12 col-sm-6">
                                     <div className="form-group">
@@ -170,7 +201,7 @@ export default function Profile() {
                                   </div>
                                 </div>
                                 <button type="submit" className="btn btn-primary btn-block">Save Changes</button>
-                              </form>
+                          
                             </div>
                           </div>
                         </div>
@@ -182,13 +213,13 @@ export default function Profile() {
                 </div>
                 {/* /Personal Details Tab */}
                 {/* Change Password Tab */}
-                <div id="password_tab" className="tab-pane fade">
+                <div className={password ? "tab-pane fade show active": "tab-pane fade"} > 
                   <div className="card">
                     <div className="card-body">
                       <h5 className="card-title">Change Password</h5>
                       <div className="row">
                         <div className="col-md-10 col-lg-6">
-                          <form>
+                      
                             <div className="form-group">
                               <label>Old Password</label>
                               <input type="password" className="form-control" />
@@ -202,7 +233,7 @@ export default function Profile() {
                               <input type="password" className="form-control" />
                             </div>
                             <button className="btn btn-primary" type="submit">Save Changes</button>
-                          </form>
+                    
                         </div>
                       </div>
                     </div>
