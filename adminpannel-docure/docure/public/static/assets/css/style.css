@@ -871,11 +871,24 @@ button.bg-danger:hover {
 	border-color: #00d0f1;
 }
 .dropdown-menu {
-	border: 1px solid rgba(0, 0, 0, 0.1);
+	border: 1px solid rgba(151, 106, 106, 0.1);
 	border-radius: 3px;
 	transform-origin: left top 0;
 	box-shadow: inherit;
 	background-color: #fff;
+	
+}
+
+.customleft130{
+
+
+	left:-130px
+}
+
+.customleft236{
+
+
+	left:-236px
 }
 .dropdown-item.active, .dropdown-item:active {
     background-color: #00d0f1;

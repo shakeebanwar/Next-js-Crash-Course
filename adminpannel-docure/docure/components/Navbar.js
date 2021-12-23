@@ -2,11 +2,70 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 export default function Navbar() {
-
+    
+ 
     const [reportDropdown, setreportDropdown] = useState(true);
     const [authDropdown, setauthDropdown] = useState(true);
     const [error, seterror] = useState(true);
     const [form, setform] = useState(true);
+    const [navDropdown, setnavDropdown] = useState(false);
+    const [notification, setnotication] = useState(false);
+
+    const navToggle=(e="navdrop")=>{
+
+      if(e == "navdrop"){
+        setnavDropdown(!navDropdown)
+        setnotication(false)
+
+      }
+
+      else{
+        setnotication(!notification)
+        setnavDropdown(false)
+      }
+      
+    }
+
+  //   const dropdownFalse=()=>{
+
+  //     // setnotication(false)
+  //     // setnavDropdown(false)
+  //     console.log("click")
+     
+  //   }
+
+  console.log("this is ",notification,navDropdown)
+    useEffect(() => {
+      
+      document.body.addEventListener('click',()=>{
+
+    
+
+        console.log("notification state is",document.getElementById('notification'))
+
+        let fetchallClass = document.getElementById('notification').className.split(' ')
+        if (fetchallClass.includes('show')){
+          console.log("if is work", fetchallClass.length)
+          if (fetchallClass.length ==  5){
+            
+            console.log("if is work", document.getElementById('notification').classList)
+            document.getElementById('notification').classList.remove('show')
+           
+       
+          }
+          
+        }
+        console.log("fetchallClass",fetchallClass)
+
+        
+
+        // setnavDropdown(!navDropdown)
+        // setnotication(false)
+       
+
+      });
+  }, [])
+
 
 
 
@@ -125,10 +184,10 @@ export default function Navbar() {
           <ul className="nav user-menu">
             {/* Notifications */}
             <li className="nav-item dropdown noti-dropdown">
-              <a href="#" className="dropdown-toggle nav-link" data-toggle="dropdown">
+              <a href="#" onClick={()=>navToggle("notification")} className="dropdown-toggle nav-link" data-toggle="dropdown">
                 <i className="fe fe-bell" /> <span className="badge badge-pill">3</span>
               </a>
-              <div className="dropdown-menu notifications">
+              <div id="notification" className={notification ? "dropdown-menu notifications customleft236 show" : "dropdown-menu notifications customleft236"}>
                 <div className="topnav-dropdown-header">
                   <span className="notification-title">Notifications</span>
                   <a href="javascript:void(0)" className="clear-noti"> Clear All </a>
@@ -199,13 +258,13 @@ export default function Navbar() {
             {/* /Notifications */}
             {/* User Menu */}
             <li className="nav-item dropdown has-arrow">
-              <a href="#" className="dropdown-toggle nav-link" data-toggle="dropdown">
+              <a href="#" onClick={()=>navToggle()} className="dropdown-toggle nav-link" data-toggle="dropdown">
                 <span className="user-img">
                   <img className="rounded-circle" src="/static/assets/img/profiles/avatar-01.jpg" width={31} height={31} alt="Ryan Taylor" />
 
                 </span>
               </a>
-              <div className="dropdown-menu">
+              <div className={navDropdown ? "dropdown-menu customleft130 show": "dropdown-menu customleft"}>
                 <div className="user-header">
                   <div className="avatar avatar-sm">
                     <img src="/static/assets/img/profiles/avatar-01.jpg" alt="User Image" className="avatar-img rounded-circle"  />

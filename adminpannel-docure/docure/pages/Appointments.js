@@ -5,6 +5,7 @@ export default function Appointments() {
       <>
   
         <div className="page-wrapper">
+          
         <div className="content container-fluid">
           {/* Page Header */}
           <div className="page-header">
