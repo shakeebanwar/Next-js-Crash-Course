@@ -23,7 +23,8 @@ function MyApp({ Component, pageProps, router }) {
       "/page500",
       "/register",
       "/forgetpassword",
-      "/lockscreen"
+      "/lockscreen",
+
     ];
     
     return !noNavScreens.includes(currentScreen)

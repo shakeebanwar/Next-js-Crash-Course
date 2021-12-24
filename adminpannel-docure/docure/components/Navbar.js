@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 
+const container = React.createRef();
+
 export default function Navbar() {
     
  
@@ -10,6 +12,7 @@ export default function Navbar() {
     const [form, setform] = useState(true);
     const [navDropdown, setnavDropdown] = useState(false);
     const [notification, setnotication] = useState(false);
+    
 
     const navToggle=(e="navdrop")=>{
 
@@ -26,44 +29,40 @@ export default function Navbar() {
       
     }
 
-  //   const dropdownFalse=()=>{
 
-  //     // setnotication(false)
-  //     // setnavDropdown(false)
-  //     console.log("click")
-     
-  //   }
 
-  console.log("this is ",notification,navDropdown)
-    useEffect(() => {
+
+  useEffect(() => {
+    document.addEventListener('mousedown', (event) => {
       
-      document.body.addEventListener('click',()=>{
+      console.log("first",container)
+      try{
+
+        if (!container.current.contains(event.target)) 
+        {
+         
+          setnotication(false)
+          setnavDropdown(false)
+         
+        
+        }
+
+
+      }
+
+      catch(err) {
+       
+      }
+
+
+     
 
     
-
-        console.log("notification state is",document.getElementById('notification'))
-
-        let fetchallClass = document.getElementById('notification').className.split(' ')
-        if (fetchallClass.includes('show')){
-          console.log("if is work", fetchallClass.length)
-          if (fetchallClass.length ==  5){
-            
-            console.log("if is work", document.getElementById('notification').classList)
-            document.getElementById('notification').classList.remove('show')
-           
-       
-          }
-          
-        }
-        console.log("fetchallClass",fetchallClass)
-
-        
-
-        // setnavDropdown(!navDropdown)
-        // setnotication(false)
-       
-
-      });
+    
+    
+    });
+   
+   
   }, [])
 
 
@@ -181,13 +180,13 @@ export default function Navbar() {
           </a>
           {/* /Mobile Menu Toggle */}
           {/* Header Right Menu */}
-          <ul className="nav user-menu">
+          <ul className="nav user-menu" ref={container}>
             {/* Notifications */}
             <li className="nav-item dropdown noti-dropdown">
               <a href="#" onClick={()=>navToggle("notification")} className="dropdown-toggle nav-link" data-toggle="dropdown">
                 <i className="fe fe-bell" /> <span className="badge badge-pill">3</span>
               </a>
-              <div id="notification" className={notification ? "dropdown-menu notifications customleft236 show" : "dropdown-menu notifications customleft236"}>
+              <div  id="notification" className={notification ? "dropdown-menu notifications customleft236 show" : "dropdown-menu notifications customleft236"}>
                 <div className="topnav-dropdown-header">
                   <span className="notification-title">Notifications</span>
                   <a href="javascript:void(0)" className="clear-noti"> Clear All </a>
