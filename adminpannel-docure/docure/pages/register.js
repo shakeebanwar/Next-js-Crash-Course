@@ -1,5 +1,5 @@
 import Router from 'next/router'
-
+import Link from 'next/link'
 export default function register() {
   return (
       <>
@@ -18,7 +18,7 @@ export default function register() {
                   <h1>Register</h1>
                   <p className="account-subtitle">Access to our dashboard</p>
                   {/* Form */}
-                  <form action="https://dreamguys.co.in/demo/doccure/admin/login.html">
+                  <form action="#">
                     <div className="form-group">
                       <input className="form-control" type="text" placeholder="Name" />
                     </div>
@@ -46,7 +46,7 @@ export default function register() {
                     <a href="#" className="facebook"><i className="fa fa-facebook" /></a><a href="#" className="google"><i className="fa fa-google" /></a>
                   </div>
                   {/* /Social Login */}
-                  <div className="text-center dont-have">Already have an account? <a href="#" onClick={()=>Router.push('login')}>Login</a></div>
+                  <div className="text-center dont-have">Already have an account? <Link href="login">Login</Link></div>
                 </div>
               </div>
             </div>

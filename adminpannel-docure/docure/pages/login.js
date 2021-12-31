@@ -1,6 +1,7 @@
 
 import Navbar from '../components/Navbar'
 import Router from 'next/router'
+import Link from 'next/link'
 
 export default function login() {
   return (
@@ -44,7 +45,7 @@ export default function login() {
                     <a href="#" className="facebook"><i className="fa fa-facebook" /></a><a href="#" className="google"><i className="fa fa-google" /></a>
                   </div>
                   {/* /Social Login */}
-                  <div className="text-center dont-have">Don’t have an account? <a href="#" onClick={()=>Router.push('register')}>Register</a></div>
+                  <div className="text-center dont-have">Don’t have an account? <Link href={"register"}>Register</Link></div>
                 </div>
               </div>
             </div>

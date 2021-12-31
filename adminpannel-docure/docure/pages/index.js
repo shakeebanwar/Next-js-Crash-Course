@@ -5,18 +5,8 @@ import Navbar from '../components/Navbar'
 
 
 export default function Home() {
-
-  
-
-
   return (
-    
     <div>
-      
-
-     
-
-
       {/* <img src="/static/assets/img/img-01.jpg" height={500} width={400} /> */}
       <div className="main-wrapper">
         {/* Header */}
@@ -498,8 +488,6 @@ export default function Home() {
         </div>
         {/* /Page Wrapper */}
       </div>
-
-
     </div>
   )
 }
