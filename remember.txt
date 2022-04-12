@@ -1,0 +1,110 @@
+Creat Project:
+npx create-next-app myapp
+
+Run:
+npm run dev
+
+
+Types of css
+
+1.Styled Css:
+    
+    
+     <style jsx>{`
+
+                h2{color:red}
+                ul{color:red}
+
+          `}
+
+     </style>
+
+
+* ya component ma kahi bi likh sakta ha.
+
+
+
+2.Global css:
+ global css ki file jo css hogi wo sb pa apply hongi
+
+
+3.Component Based Module Css:
+ jis tarha global css sb pa apply hoti ya jaha import karo waha apply hongi
+
+
+
+
+
+Static Generation method:
+ 
+ Basic Syntax:
+    export async function getStaticProps(){
+
+  //Data Fetching
+  return{
+
+    props:{
+      data
+    }
+  }
+}
+
+Server side prop:
+ 
+
+  export async function getServerSideProps(){
+
+  //Data Fetching
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts/9")
+  const data = await res.json()
+  return{
+
+    props:{
+      data
+    }
+  }
+}
+
+
+Dynamic route Generation:
+creata a file [id].js inside the page directory
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
